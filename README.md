@@ -11,6 +11,8 @@ FFTを使わずに直接回折を計算して光芒画像を生成するコー�
 ![out.png](https://github.com/user-attachments/assets/ce02f1f2-4f23-4b31-98e6-3ae9e2e51674)
 
 ##やり方  
+Step1～3のexeまたはhspコードを順に実行  
+
 ### Step1  
 直接法のほうが綺麗なことがわかったのでさらに綺麗さを追求&最適化  
 色は波長→RGBを等色関数で計算をする  
