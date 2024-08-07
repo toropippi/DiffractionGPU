@@ -1,0 +1,204 @@
+//Step1
+//直接法のほうが綺麗なことがわかったのでさらに綺麗さを追求&最適化
+//色は波長→RGBを等色関数で計算をする
+//これによって入力スペクトルにしたがっていろんな色の光芒が作れるように
+//double型,float型指定可能
+//画像サイズは256～2048。FFT使ってないので2べきじゃなくてもよい
+//入力画像は黒い部分が遮蔽、白が光を透過。白い部分が多いほど計算時間が増える
+//FFTの高速化は標本サイズの制限が出るので実装しない予定
+//出力は1ピクセルの1色あたりfloat=4byteの情報があるので4枚bmpに8bitずつ出力
+
+//Step2,Step3
+//bmp4枚が出力されたらStep2,Step3を実行を。最終的にいい感じに1枚のpngにおさまる
+
+
+#include "col390to830.hsp"
+#include "HSPCL64.as"
+//光関係
+#const double lambda 0.000000800//波長0.000000800
+z0xyScale=0.000005//z=0のセンサーにあたる部分のxyスケール0.000001
+g_xyScale=0.00000002//開口のxyスケール0.00000002
+#const double distance_first 0.000001//開口とセンサーの距離0.000001
+	
+//出力画像関係
+#const int OX 1024//4の倍数
+#const int OY 1024//4の倍数
+
+//等色関数関係
+#const int split_n 30//光の波長1オクターブを何分割するか
+#const int DOUBLEON 0//0でfloat型を使う、1でdouble型を使う
+
+	ddim lint,split_n//波長ごとの強さ
+	repeat 30:lint.cnt=1.0:loop
+	
+	//波長を30分割して各スペクトルの強度をじか打ち↓
+	lint.0=2.0,2.0,2.0,1.5,1.5
+	lint.5=1.0,1.0,1.0,1.0,1.0
+	lint.10=1.0,1.0,1.0,1.0,1.0
+	lint.15=1.0,1.0,1.0,1.0,1.0
+	lint.20=1.5,2.0,2.5,3.0,3.5
+	lint.25=4.0,4.5,5.0,5.5,6.0
+
+	//定数計算
+	typesize=4+4*DOUBLEON
+	splitIntensity=1.0/powf(0.5,1.0/split_n)//波長1オクターブをn分割
+
+
+	HCLinit
+	HCLSetDevice 0//倍精度が速いGPU or CPUで
+
+	buffer 1:picload "input.png"//まつげ画像など
+	gsel1x=ginfo(12)
+	gsel1y=ginfo(13)
+
+	//512*512を基準に
+	z0xyScale=z0xyScale*512.0/double(min64(OX,OY))
+	g_xyScale=g_xyScale*512.0/double(min64(gsel1x,gsel1y))
+	//ここまで
+	
+	scrn=HCLCreateBuffer(INT64(OX)*OY*split_n*typesize*2)//各波長での実数、虚数を保存
+	scrnAddLight=HCLCreateBuffer(OX*OY*typesize*3)//n個の波長すべて合計*rgb
+	sumReductionTmp1=HCLCreateBuffer(1*typesize)//光の強度合計
+	//等色関数計算
+	colFuncBuf=HCLCreateBuffer(split_n*typesize*3)//
+	gosub*CalccolFuncBuf
+	//
+
+	
+	
+	prgid=HCLCreateProgram("StarBurst.cl","-D DOUBLEON="+DOUBLEON+" -D OX="+OX+" -D OY="+OY+" -D IX="+gsel1x+" -D IY="+gsel1y+" -D SPLIT_N="+split_n+"  -D INTENSITYW="+splitIntensity+"")
+	krnDiff=HCLCreateKernel(prgid,"Diffraction")
+	krnAddLight=HCLCreateKernel(prgid,"AddLight")
+	krnToScreen=HCLCreateKernel(prgid,"ToScreen")
+	krnSumReduction=HCLCreateKernel(prgid,"SumReduction")
+
+
+	
+	screen 2,OX,OY
+	mref i2,66
+	mrefi2=HCLCreateBufferFrom(i2)
+
+	screen 3,OX,OY
+	mref i3,66
+	mrefi3=HCLCreateBufferFrom(i3)
+	
+	screen 4,OX,OY
+	mref i4,66
+	mrefi4=HCLCreateBufferFrom(i4)
+
+	screen 5,OX,OY
+	mref i5,66
+	mrefi5=HCLCreateBufferFrom(i5)
+	
+		repeat 1
+		distance=distance_first+distance_first*cnt
+		HCLFillBuffer scrn,0.0
+		gosub*main
+		wait 1
+		loop
+
+	end
+
+
+
+
+//1つの距離について、全波長合計計算→bmp出力
+*main
+	gsel 1
+		repeat gsel1y
+		y=cnt
+			repeat gsel1x
+			x=cnt
+			pget x,y
+			if ginfo_r<128:continue
+			gosub*batch
+			HCLFlush
+			await 0
+			loop
+		loop
+	//光の強度計算し合計
+	HCLSetKrns krnAddLight,scrn,scrnAddLight,colFuncBuf
+	HCLDoKrn1_sub krnAddLight,OX*OY,64
+	
+	//全波長 光の強度合計しおわった
+	gosub*view
+	gosub*save
+	return
+
+
+*batch
+	HCLSetKernel krnDiff,0,scrn
+	if DOUBLEON==1{
+		HCLSetKernel krnDiff,1,z0xyScale
+		HCLSetKernel krnDiff,2,z0xyScale
+		HCLSetKernel krnDiff,3,distance
+		HCLSetKernel krnDiff,4,3.1415926535*2.0/lambda
+		HCLSetKernel krnDiff,5,g_xyScale*(x-gsel1x/2)
+		HCLSetKernel krnDiff,6,g_xyScale*(y-gsel1y/2)
+	}else{
+		HCLSetKernel krnDiff,1,float(z0xyScale)
+		HCLSetKernel krnDiff,2,float(z0xyScale)
+		HCLSetKernel krnDiff,3,float(distance)
+		HCLSetKernel krnDiff,4,float(3.1415926535*2.0/lambda)
+		HCLSetKernel krnDiff,5,float(g_xyScale*(x-gsel1x/2))
+		HCLSetKernel krnDiff,6,float(g_xyScale*(y-gsel1y/2))
+	}
+	
+	HCLDoKrn1_sub krnDiff,OX*OY,64
+	return
+
+*view
+	//リダクションノーマライズ
+	HCLSetKrns krnSumReduction,scrnAddLight,sumReductionTmp1
+	HCLSetKernel krnSumReduction,2,0,typesize*256
+	HCLDoKrn1 krnSumReduction,256,256
+	//可視化
+	HCLSetKrns krnToScreen,scrnAddLight,mrefi2,mrefi3,mrefi4,mrefi5,sumReductionTmp1
+	HCLDoKrn1_sub krnToScreen,OX*OY,64
+	HCLReadBuffer mrefi2,i2
+	HCLReadBuffer mrefi3,i3
+	HCLReadBuffer mrefi4,i4
+	HCLReadBuffer mrefi5,i5
+	return
+
+*save
+	gsel 2//色
+	redraw 1
+	bmpsave strf("screenA_%d.bmp",distance*100000000.0)
+	gsel 3//色
+	redraw 1
+	bmpsave strf("screenB_%d.bmp",distance*100000000.0)
+	gsel 4//色
+	redraw 1
+	bmpsave strf("screenC_%d.bmp",distance*100000000.0)
+	gsel 5//色
+	redraw 1
+	bmpsave strf("screenD_%d.bmp",distance*100000000.0)
+	return
+
+*CalccolFuncBuf
+	//830-390のうち
+	//800-400を計算
+	lm_=787.0
+	
+	if DOUBLEON==1{
+		ddim host_colFuncBuf,split_n*3
+	}else{
+		fdim host_colFuncBuf,split_n*3
+	}
+		repeat split_n
+		ilm_=int(lm_*10.0+0.5)
+		ilm_-=3900
+		if DOUBLEON==1{
+			host_colFuncBuf.(cnt*3+0)=funcr.ilm_*lint.cnt
+			host_colFuncBuf.(cnt*3+1)=funcg.ilm_*lint.cnt
+			host_colFuncBuf.(cnt*3+2)=funcb.ilm_*lint.cnt
+		}else{
+			host_colFuncBuf.(cnt*3+0)=float(funcr.ilm_*lint.cnt)
+			host_colFuncBuf.(cnt*3+1)=float(funcg.ilm_*lint.cnt)
+			host_colFuncBuf.(cnt*3+2)=float(funcb.ilm_*lint.cnt)
+		}
+		lm_/=splitIntensity
+		loop
+	HCLWriteBuffer colFuncBuf,host_colFuncBuf
+	return

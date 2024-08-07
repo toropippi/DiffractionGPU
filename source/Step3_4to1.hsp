@@ -1,0 +1,54 @@
+#include "PNGmaker.as"
+
+num=0
+buffer 1
+picload "sample"+num+"A.png"
+buffer 2
+picload "sample"+num+"B.png"
+buffer 3
+picload "sample"+num+"C.png"
+buffer 4
+picload "sample"+num+"D.png"
+
+bai=35
+
+
+	screen 6,1024,1024	
+	repeat 1024
+	y=cnt
+	redraw 0
+		repeat 1024
+		x=cnt
+		gsel 1
+		pget x,y
+		r=ginfo_r*65536*bai
+		g=ginfo_g*65536*bai
+		b=ginfo_b*65536*bai
+		gsel 2
+		pget x,y
+		r+=ginfo_r*256*bai
+		g+=ginfo_g*256*bai
+		b+=ginfo_b*256*bai
+		gsel 3
+		pget x,y
+		r+=ginfo_r*bai
+		g+=ginfo_g*bai
+		b+=ginfo_b*bai
+		gsel 4
+		pget x,y
+		r+=ginfo_r*bai/256
+		g+=ginfo_g*bai/256
+		b+=ginfo_b*bai/256
+
+		gsel 6
+		r=limit(r,0,255)
+		g=limit(g,0,255)
+		b=limit(b,0,255)
+		color r,g,b
+		pset x,y
+		loop
+	redraw 1
+	loop
+
+pngsave "out.png"
+end
