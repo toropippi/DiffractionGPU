@@ -48,9 +48,9 @@ goto *step1_params_and_spectrum_end
 	if argKey="distance" : distance=double(argValue) : return
 	if argKey="gxy" : g_xyScale=double(argValue) : return
 	if argKey="z0" : z0xyScale=double(argValue) : return
-	if argKey="ox" : OX=double(argValue) : return
-	if argKey="oy" : OY=double(argValue) : return
-	if argKey="splitn" : split_n=double(argValue) : return
+	if argKey="ox" : OX=int(argValue) : return
+	if argKey="oy" : OY=int(argValue) : return
+	if argKey="splitn" : split_n=int(argValue) : return
 	if argKey="spec" : spec_name=argValue : spec_mode=0 : return
 	if argKey="specvals" : spec_values_raw=argValue : spec_mode=1 : return
 	if argKey="specfile" : spec_file_path=argValue : spec_mode=2 : return
