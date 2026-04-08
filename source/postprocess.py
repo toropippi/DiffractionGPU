@@ -6,6 +6,8 @@ import numpy as np
 import OpenEXR
 from PIL import Image
 
+PREVIEW_PERCENTILE = 95.0
+
 
 def load_raw_rgb(path: Path, width: int, height: int) -> np.ndarray:
     data = np.fromfile(path, dtype=np.float32)
@@ -14,6 +16,13 @@ def load_raw_rgb(path: Path, width: int, height: int) -> np.ndarray:
         raise ValueError(f"expected {expected} float32 values, got {data.size}")
     # Match the orientation of the BMP preview path.
     return data.reshape((height, width, 3))[::-1, :, :].copy()
+
+
+def apply_percentile_exposure(data: np.ndarray, percentile: float) -> tuple[np.ndarray, float]:
+    scale = float(np.percentile(data.reshape(-1), percentile))
+    if scale <= 0.0:
+        return np.zeros_like(data, dtype=np.float32), scale
+    return (data / scale).astype(np.float32), scale
 
 
 def save_png(path: Path, data: np.ndarray) -> None:
@@ -67,14 +76,16 @@ def main() -> int:
         return 1
 
     data = load_raw_rgb(bin_path, width, height)
+    exposed, scale = apply_percentile_exposure(data, PREVIEW_PERCENTILE)
     output_path = build_output_path(bin_path, fmt)
 
     if fmt == "png":
-        save_png(output_path, data)
+        save_png(output_path, exposed)
     else:
-        save_exr(output_path, data)
+        save_exr(output_path, exposed)
 
-    print(f"saved: {output_path}")
+    bin_path.unlink()
+    print(f"saved: {output_path} scale={scale} percentile={PREVIEW_PERCENTILE}")
     return 0
 
 

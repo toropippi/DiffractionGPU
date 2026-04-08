@@ -19,8 +19,8 @@ g_xyScale=0.00000002//開口のxyスケール0.00000002
 #const double distance_first 0.000001//開口とセンサーの距離0.000001
 
 //出力画像関係
-#const int OX 1024//4の倍数
-#const int OY 1024//4の倍数
+#const int OX 4096//4の倍数
+#const int OY 4096//4の倍数
  
 python_exe="C:\\Python313\\python.exe"
 postprocess_format="png"	// "png" or "exr"
