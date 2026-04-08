@@ -16,15 +16,9 @@ def load_raw_rgb(path: Path, width: int, height: int) -> np.ndarray:
     return data.reshape((height, width, 3))[::-1, :, :].copy()
 
 
-def normalize_rgb(data: np.ndarray) -> np.ndarray:
-    max_value = float(np.max(data))
-    if max_value <= 0.0:
-        return np.zeros_like(data, dtype=np.float32)
-    return (data / max_value).astype(np.float32)
-
-
 def save_png(path: Path, data: np.ndarray) -> None:
-    image = np.clip(data * 255.0, 0.0, 255.0).astype(np.uint8)
+    image = np.clip(data, 0.0, 1.0)
+    image = (image * 255.0).astype(np.uint8)
     Image.fromarray(image).save(path)
 
 
@@ -73,13 +67,12 @@ def main() -> int:
         return 1
 
     data = load_raw_rgb(bin_path, width, height)
-    normalized = normalize_rgb(data)
     output_path = build_output_path(bin_path, fmt)
 
     if fmt == "png":
-        save_png(output_path, normalized)
+        save_png(output_path, data)
     else:
-        save_exr(output_path, normalized)
+        save_exr(output_path, data)
 
     print(f"saved: {output_path}")
     return 0
