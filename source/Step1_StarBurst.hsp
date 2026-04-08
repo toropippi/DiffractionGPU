@@ -6,72 +6,97 @@
 //画像サイズは256～2048。FFT使ってないので2べきじゃなくてもよい
 //入力画像は黒い部分が遮蔽、白が光を透過。白い部分が多いほど計算時間が増える
 //FFTの高速化は標本サイズの制限が出るので実装しない予定
-//出力は1ピクセルの1色あたりfloat=4byteの情報があるので4枚bmpに8bitずつ出力
-//加えてraw float32 RGBをbin保存し、Pythonで最終png/exrを生成する
+//中間出力はraw float32 RGBをbin保存し、Pythonで最終png/exrを生成する
+//
+//Runtime args:
+//  input=path/to/mask.png
+//  distance=0.000001
+//  gxy=0.00000002
+//  z0=0.000005
+//  ox=4096
+//  oy=4096
+//  splitn=30
+//  spec=white|warm|cool|daylight|tungsten|candle|sunset|amber|teal|cyan|green|blue_soft|blue_hard|purple|extreme_red|extreme_yellow|extreme_green|extreme_cyan|extreme_blue|extreme_violet
+//  specvals=1,1,1,...   ; splitn個ぶんの厳密値
+//  specfile=spec.csv    ; wavelength,intensity のCSV
+//  tag=my_run_name
+
+#const double lambda 0.000000800
+#const double distance_first 0.000001
+#const int DOUBLEON 0
+#const int SPEC_POINT_N 10
 
 #include "col390to830.hsp"
 #include "HSPCL64.as"
+#include "Step1_ParamsAndSpectrum.as"
 
-//光関係
-#const double lambda 0.000000800//波長0.000000800
-z0xyScale=0.000005//z=0のセンサーにあたる部分のxyスケール0.000001
-g_xyScale=0.00000002//開口のxyスケール0.00000002
-#const double distance_first 0.000001//開口とセンサーの距離0.000001
+OX_default=1024
+OY_default=1024
+split_n_default=30//光の波長1オクターブを何分割するか
+OX=OX_default
+OY=OY_default
+split_n=split_n_default
 
-//出力画像関係
-#const int OX 4096//4の倍数
-#const int OY 4096//4の倍数
- 
 python_exe="C:\\Python313\\python.exe"
-postprocess_format="png"	// "png" or "exr"
+input_path=dir_exe+"\\input.png"
+run_tag=""
+spec_name="white"//入力スペクトルのプリセット名
+spec_mode=0
+spec_values_raw=""
+spec_file_path=""
 
-//等色関数関係
-#const int split_n 30//光の波長1オクターブを何分割するか
-#const int DOUBLEON 0//0でfloat型を使う、1でdouble型を使う
+z0xyScale_default=0.000005
+z0xyScale=z0xyScale_default
+g_xyScale_default=0.00000002
+g_xyScale=g_xyScale_default
+distance=distance_first
 
-	ddim lint,split_n//波長ごとの強さ
-	repeat 30:lint.cnt=1.0:loop
-	
-	//波長を30分割して各スペクトルの強度をじか打ち↓
-	lint.0=2.0,2.0,2.0,1.5,1.5
-	lint.5=1.0,1.0,1.0,1.0,1.0
-	lint.10=1.0,1.0,1.0,1.0,1.0
-	lint.15=1.0,1.0,1.0,1.0,1.0
-	lint.20=1.5,2.0,2.5,3.0,3.5
-	lint.25=4.0,4.5,5.0,5.5,6.0
+kernel_path=dir_exe+"\\StarBurst.cl"
+postprocess_path=dir_exe+"\\postprocess.py"
+runStem=""
+rawBinPath=""
+cmdline_raw=""
+cmdline_raw=dir_cmdline
+argToken=""
+sample_wave=0.0
+sample_value=0.0
 
-	//定数計算
+if cmdline_raw!="" : gosub *parseCommandLine
+gosub *resolveInputPath
+gosub *resolveSpecFilePath
+gosub *validateRuntimeParams
+gosub *buildRunStem
+
 	typesize=4+4*DOUBLEON
-	splitIntensity=1.0/powf(0.5,1.0/split_n)//波長1オクターブをn分割
+	splitIntensity=1.0/powf(0.5,1.0/split_n)
+	//split_nごとのlintは固定配列ではなくスペクトル定義から生成する
+	gosub *initSpectrumWaves
+	if spec_mode=0 : gosub *setSpectrumPreset
+	gosub *buildSpectrumWeights
 
 	HCLinit
-	HCLSetDevice 0//倍精度が速いGPU or CPUで
-
-	buffer 1:picload "input.png"//まつげ画像など
+	HCLSetDevice 0
+	buffer 1
+	picload input_path
 	gsel1x=ginfo(12)
 	gsel1y=ginfo(13)
 
-	//512*512を基準に
 	z0xyScale=z0xyScale*512.0/double(min64(OX,OY))
 	g_xyScale=g_xyScale*512.0/double(min64(gsel1x,gsel1y))
-	//ここまで
-	
-	scrn=HCLCreateBuffer(INT64(OX)*OY*split_n*typesize*2)//各波長での実数、虚数を保存
-	scrnAddLight=HCLCreateBuffer(OX*OY*typesize*3)//n個の波長すべて合計*rgb
-	sumVal=HCLCreateBuffer(1*typesize)//光の強度合計
-	//等色関数計算
+
+	scrn=HCLCreateBuffer(INT64(OX)*OY*split_n*typesize*2)
+	scrnAddLight=HCLCreateBuffer(OX*OY*typesize*3)
+	sumVal=HCLCreateBuffer(1*typesize)
 	colFuncBuf=HCLCreateBuffer(split_n*typesize*3)
-	gosub*CalccolFuncBuf
-	
-	prgid=HCLCreateProgram("StarBurst.cl","-D DOUBLEON="+DOUBLEON+" -D OX="+OX+" -D OY="+OY+" -D IX="+gsel1x+" -D IY="+gsel1y+" -D SPLIT_N="+split_n+"  -D INTENSITYW="+splitIntensity+"")
+	gosub *CalccolFuncBuf
+
+	prgid=HCLCreateProgram(kernel_path,"-D DOUBLEON="+DOUBLEON+" -D OX="+OX+" -D OY="+OY+" -D IX="+gsel1x+" -D IY="+gsel1y+" -D SPLIT_N="+split_n+" -D INTENSITYW="+splitIntensity+"")
 	krnDiff=HCLCreateKernel(prgid,"Diffraction")
 	krnAddLight=HCLCreateKernel(prgid,"AddLight")
 	krnSumReduction=HCLCreateKernel(prgid,"SumReduction")
-	
-	distance=distance_first
-	gosub*main
-	end
 
+	gosub *main
+	end
 
 //1つの距離について、全波長合計計算→保存
 *main
@@ -81,8 +106,8 @@ postprocess_format="png"	// "png" or "exr"
 			repeat gsel1x
 			x=cnt
 			pget x,y
-			if ginfo_r<128:continue
-			gosub*batch
+			if ginfo_r<128 : continue
+			gosub *batch
 			HCLFlush
 			await 0
 			loop
@@ -92,15 +117,14 @@ postprocess_format="png"	// "png" or "exr"
 	HCLDoKrn1_sub krnAddLight,OX*OY,64
 	
 	//全波長 光の強度合計しおわった
-	gosub*view
-	gosub*saveRawFloat
-	gosub*runPostprocess
+	gosub *view
+	gosub *saveRawFloat
+	gosub *runPostprocess
 	return
-
 
 *batch
 	HCLSetKernel krnDiff,0,scrn
-	if DOUBLEON==1{
+	if DOUBLEON==1 {
 		HCLSetKernel krnDiff,1,z0xyScale
 		HCLSetKernel krnDiff,2,z0xyScale
 		HCLSetKernel krnDiff,3,distance
@@ -135,18 +159,15 @@ postprocess_format="png"	// "png" or "exr"
 	return
 
 *saveRawFloat
-	runId=strf("%d",distance*100000000.0)
-	rawBinPath="z_"+runId+".bin"
+	rawBinPath=dir_exe+"\\z_"+runStem+".bin"
 	dim fout2,OX*OY*3
 	memcpy fout2,fout,OX*OY*3*4
 	bsave rawBinPath,fout2
 	return
 
 *runPostprocess
-	runId=strf("%d",distance*100000000.0)
-	rawBinPath="z_"+runId+".bin"
-	cmdline="\"postprocess.py\" \""+rawBinPath+"\" "+OX+" "+OY+" "+postprocess_format
-	exec python_exe+" "+cmdline
+	cmdline="\""+postprocess_path+"\" \""+rawBinPath+"\" "+OX+" "+OY
+	exec "\""+python_exe+"\" "+cmdline
 	return
 
 *CalccolFuncBuf

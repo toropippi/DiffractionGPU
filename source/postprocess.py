@@ -1,4 +1,5 @@
 from pathlib import Path
+import random
 import sys
 
 import Imath
@@ -54,38 +55,35 @@ def save_exr(path: Path, data: np.ndarray) -> None:
         exr.close()
 
 
-def build_output_path(bin_path: Path, fmt: str) -> Path:
+def build_output_path(bin_path: Path, suffix: str, fmt: str) -> Path:
     stem = bin_path.stem
     if stem.startswith("z_"):
         stem = stem[2:]
-    return bin_path.with_name(f"out_{stem}.{fmt}")
+    return bin_path.with_name(f"out_{stem}_{suffix}.{fmt}")
 
 
 def main() -> int:
-    if len(sys.argv) != 5:
-        print("usage: python postprocess.py <raw_bin> <width> <height> <png|exr>")
+    if len(sys.argv) != 4:
+        print("usage: python postprocess.py <raw_bin> <width> <height>")
         return 1
 
     bin_path = Path(sys.argv[1])
     width = int(sys.argv[2])
     height = int(sys.argv[3])
-    fmt = sys.argv[4].lower()
-
-    if fmt not in {"png", "exr"}:
-        print(f"unsupported format: {fmt}")
-        return 1
 
     data = load_raw_rgb(bin_path, width, height)
     exposed, scale = apply_percentile_exposure(data, PREVIEW_PERCENTILE)
-    output_path = build_output_path(bin_path, fmt)
+    suffix = f"{random.SystemRandom().randrange(10**10):010d}"
+    png_path = build_output_path(bin_path, suffix, "png")
+    exr_path = build_output_path(bin_path, suffix, "exr")
 
-    if fmt == "png":
-        save_png(output_path, exposed)
-    else:
-        save_exr(output_path, exposed)
+    save_png(png_path, exposed)
+    save_exr(exr_path, exposed)
 
     bin_path.unlink()
-    print(f"saved: {output_path} scale={scale} percentile={PREVIEW_PERCENTILE}")
+    print(f"saved: {png_path}")
+    print(f"saved: {exr_path}")
+    print(f"scale={scale} percentile={PREVIEW_PERCENTILE} suffix={suffix}")
     return 0
 
 
