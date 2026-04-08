@@ -22,6 +22,9 @@ g_xyScale=0.00000002//開口のxyスケール0.00000002
 #const int OX 1024//4の倍数
 #const int OY 1024//4の倍数
 
+python_exe="C:\Python313\python.exe"
+postprocess_format="png"	// "png" or "exr"
+
 //等色関数関係
 #const int split_n 30//光の波長1オクターブを何分割するか
 #const int DOUBLEON 0//0でfloat型を使う、1でdouble型を使う
@@ -65,6 +68,7 @@ g_xyScale=0.00000002//開口のxyスケール0.00000002
 	krnAddLight=HCLCreateKernel(prgid,"AddLight")
 	krnSumReduction=HCLCreateKernel(prgid,"SumReduction")
 	
+	distance=distance_first
 	gosub*main
 	end
 
@@ -141,7 +145,7 @@ g_xyScale=0.00000002//開口のxyスケール0.00000002
 	runId=strf("%d",distance*100000000.0)
 	rawBinPath="z_"+runId+".bin"
 	cmdline="postprocess.py "+rawBinPath+" "+OX+" "+OY+" "+postprocess_format
-	exec "python "+cmdline,0
+	exec python_exe+" "+cmdline,0
 	return
 
 *CalccolFuncBuf
