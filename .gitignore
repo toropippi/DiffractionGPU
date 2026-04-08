@@ -3,3 +3,5 @@ source/obj
 source/HSPCL64.dll
 source/Step1_StarBurst.exe
 source/__pycache__/postprocess.cpython-313.pyc
+source/__pycache__/generate_aperture_masks.cpython-313.pyc
+source/__pycache__/run_starburst_batch.cpython-313.pyc
