@@ -121,25 +121,22 @@ __kernel void AddLight(__global Complex *buffer,__global TYPE *buffer2,__global 
 
 
 
-
-
-
 __kernel void SumReduction(__global TYPE *buffer,__global TYPE *buffer2,__local TYPE *block)
 {
 	uint idx = get_global_id(0);
 	uint lid = get_local_id(0);
-	TYPE maxnum = 0.0;
-	for(uint i=lid;i<OX*OY*3;i+=256)
+	TYPE totalval = 0.0;
+	for(uint i=lid;i<OX*OY*3;i+=1024)
 	{
-		maxnum=max(maxnum,buffer[i]);
+		totalval+=buffer[i];
 	}
-	block[lid]=maxnum;
+	block[lid]=totalval;
 	
-	for(uint i=128;i>0;i/=2)
+	for(uint i=512;i>0;i/=2)
 	{
 		barrier(CLK_LOCAL_MEM_FENCE);
 		if (idx<i){
-			block[idx]=max(block[idx],block[idx+i]);
+			block[idx]+=block[idx+i];
 		}
 	}
 	
@@ -147,9 +144,5 @@ __kernel void SumReduction(__global TYPE *buffer,__global TYPE *buffer2,__local 
 		buffer2[0]=block[0];
 	}
 }
-
-
-
-
 
 

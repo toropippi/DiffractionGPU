@@ -58,7 +58,7 @@ postprocess_format="png"	// "png" or "exr"
 	
 	scrn=HCLCreateBuffer(INT64(OX)*OY*split_n*typesize*2)//各波長での実数、虚数を保存
 	scrnAddLight=HCLCreateBuffer(OX*OY*typesize*3)//n個の波長すべて合計*rgb
-	sumReductionTmp1=HCLCreateBuffer(1*typesize)//光の強度合計
+	sumVal=HCLCreateBuffer(1*typesize)//光の強度合計
 	//等色関数計算
 	colFuncBuf=HCLCreateBuffer(split_n*typesize*3)
 	gosub*CalccolFuncBuf
@@ -121,21 +121,22 @@ postprocess_format="png"	// "png" or "exr"
 
 *view
 	//リダクションノーマライズ
-	HCLSetKrns krnSumReduction,scrnAddLight,sumReductionTmp1
-	HCLSetKernel krnSumReduction,2,0,typesize*256
-	HCLDoKrn1 krnSumReduction,256,256
+	HCLSetKrns krnSumReduction,scrnAddLight,sumVal
+	HCLSetKernel krnSumReduction,2,0,typesize*1024
+	HCLDoKrn1 krnSumReduction,1024,1024
+	
+	floatAddLight=HCLCreateBuffer(OX*OY*4*3)
+	if DOUBLEON==1{
+		HCLDoXd "F0[i]=(float)A[i]/B[0];",scrnAddLight,sumVal,floatAddLight
+	}else{
+		HCLDoXf "F0[i]=(float)A[i]/B[0];",scrnAddLight,sumVal,floatAddLight
+	}
+	HCLdim_fpFromBuffer fout,floatAddLight
 	return
 
 *saveRawFloat
 	runId=strf("%d",distance*100000000.0)
 	rawBinPath="z_"+runId+".bin"
-	if DOUBLEON==1{
-		floatAddLight=HCLCreateBuffer(OX*OY*4*3)
-		HCLDoXd "F0[i]=(float)A[i];",scrnAddLight,floatAddLight
-		HCLdim_fpFromBuffer fout,floatAddLight
-	}else{
-		HCLdim_fpFromBuffer fout,scrnAddLight
-	}
 	dim fout2,OX*OY*3
 	memcpy fout2,fout,OX*OY*3*4
 	bsave rawBinPath,fout2
