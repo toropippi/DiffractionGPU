@@ -21,8 +21,8 @@ g_xyScale=0.00000002//開口のxyスケール0.00000002
 //出力画像関係
 #const int OX 1024//4の倍数
 #const int OY 1024//4の倍数
-
-python_exe="C:\Python313\python.exe"
+ 
+python_exe="C:\\Python313\\python.exe"
 postprocess_format="png"	// "png" or "exr"
 
 //等色関数関係
@@ -144,8 +144,8 @@ postprocess_format="png"	// "png" or "exr"
 *runPostprocess
 	runId=strf("%d",distance*100000000.0)
 	rawBinPath="z_"+runId+".bin"
-	cmdline="postprocess.py "+rawBinPath+" "+OX+" "+OY+" "+postprocess_format
-	exec python_exe+" "+cmdline,0
+	cmdline="\"postprocess.py\" \""+rawBinPath+"\" "+OX+" "+OY+" "+postprocess_format
+	exec python_exe+" "+cmdline
 	return
 
 *CalccolFuncBuf
