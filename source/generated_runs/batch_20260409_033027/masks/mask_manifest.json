@@ -1,0 +1,53 @@
+[
+  {
+    "name": "mask_01_multi_slit",
+    "style": "multi_slit",
+    "seed": 887271685,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_033027\\masks\\mask_01_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 6,
+      "slit_width": 12,
+      "length": 372,
+      "angle_deg": -12.479
+    }
+  },
+  {
+    "name": "mask_02_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 613929631,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_033027\\masks\\mask_02_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 11,
+      "inner_radius": 46,
+      "outer_radius": 215,
+      "width": 5
+    }
+  },
+  {
+    "name": "mask_03_star_polygon",
+    "style": "star_polygon",
+    "seed": 844042528,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_033027\\masks\\mask_03_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 8,
+      "outer_radius": 157,
+      "inner_radius": 43
+    }
+  },
+  {
+    "name": "mask_04_ring_gap",
+    "style": "ring_gap",
+    "seed": 207484490,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_033027\\masks\\mask_04_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 133,
+      "thickness": 24,
+      "gap_angle_deg": 38.149,
+      "gap_center_deg": 68.73
+    }
+  }
+]

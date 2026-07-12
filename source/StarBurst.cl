@@ -14,48 +14,6 @@ typedef struct{
 
 
 
-void hsv2rgb(TYPE hue,TYPE *red_,TYPE *green_,TYPE *blue_)
-{
-	if (hue<0)hue+=360.0;
-	TYPE saturation = 310.0;
-	TYPE value = 290.0;
-	TYPE c = saturation;
-	TYPE _h = hue / 60;
-	TYPE tmp = fmod(_h, 2) - 1;
-	if (tmp<0)tmp=-tmp;
-	TYPE _x = c * (1.0 - tmp);
-	TYPE red , green , blue;
-	red = green = blue = value - c;
-	if (_h < 1) {
-		red += c;
-		green += _x;
-	}
-	else if (_h < 2) {
-		red += _x;
-		green += c;
-	}
-	else if (_h < 3) {
-		green += c;
-		blue += _x;
-	}
-	else if (_h < 4) {
-		green += _x;
-		blue += c;
-	}
-	else if (_h < 5) {
-		red += _x;
-		blue += c;
-	}
-	else if (_h < 6) {
-		red += c;
-		blue += _x;
-	}
-	*red_=red;
-	*green_=green;
-	*blue_=blue;
-}
-
-
 __kernel void Diffraction(__global Complex *buffer,TYPE xx,TYPE yy,TYPE R,TYPE k,TYPE sx,TYPE sy)
 {
 	uint id = get_global_id(0);

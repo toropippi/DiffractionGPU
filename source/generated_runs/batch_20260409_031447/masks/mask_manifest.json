@@ -1,0 +1,143 @@
+[
+  {
+    "name": "mask_01_multi_slit",
+    "style": "multi_slit",
+    "seed": 887271685,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_01_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 6,
+      "slit_width": 12,
+      "length": 372,
+      "angle_deg": -12.479
+    }
+  },
+  {
+    "name": "mask_02_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 613929631,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_02_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 11,
+      "inner_radius": 46,
+      "outer_radius": 215,
+      "width": 5
+    }
+  },
+  {
+    "name": "mask_03_star_polygon",
+    "style": "star_polygon",
+    "seed": 844042528,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_03_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 8,
+      "outer_radius": 157,
+      "inner_radius": 43
+    }
+  },
+  {
+    "name": "mask_04_ring_gap",
+    "style": "ring_gap",
+    "seed": 207484490,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_04_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 133,
+      "thickness": 24,
+      "gap_angle_deg": 38.149,
+      "gap_center_deg": 68.73
+    }
+  },
+  {
+    "name": "mask_05_polygon_aperture",
+    "style": "polygon_aperture",
+    "seed": 758895169,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_05_polygon_aperture.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "base_radius": 147,
+      "jitter": 0.1217,
+      "vertex_radii": [
+        153.888,
+        159.263,
+        130.465,
+        143.196,
+        130.18,
+        151.606
+      ]
+    }
+  },
+  {
+    "name": "mask_06_crescent",
+    "style": "crescent",
+    "seed": 112757561,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_06_crescent.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 195,
+      "offset_px": 35,
+      "occluder_scale": 0.8415
+    }
+  },
+  {
+    "name": "mask_07_scratched_disc",
+    "style": "scratched_disc",
+    "seed": 704632363,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_07_scratched_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 167,
+      "scratch_count": 28,
+      "scratch_width": 5,
+      "speckle_mode": true
+    }
+  },
+  {
+    "name": "mask_08_grid",
+    "style": "grid",
+    "seed": 648803328,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_08_grid.png",
+    "params": {
+      "size": 512,
+      "spacing": 52,
+      "line_width": 6,
+      "span": 190
+    }
+  },
+  {
+    "name": "mask_09_offset_occlusion",
+    "style": "offset_occlusion",
+    "seed": 829075158,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_09_offset_occlusion.png",
+    "params": {
+      "size": 512,
+      "radius": 149,
+      "cut_width": 92,
+      "cut_height": 86,
+      "shift_x": -61,
+      "shift_y": 29
+    }
+  },
+  {
+    "name": "mask_10_asymmetric_blades",
+    "style": "asymmetric_blades",
+    "seed": 935016008,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_031447\\masks\\mask_10_asymmetric_blades.png",
+    "params": {
+      "size": 512,
+      "blades": 6,
+      "base_radius": 149,
+      "vertex_radii": [
+        109.258,
+        173.272,
+        110.57,
+        127.344,
+        138.046,
+        154.488
+      ]
+    }
+  }
+]

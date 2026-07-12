@@ -30,15 +30,15 @@
 #include "HSPCL64.as"
 #include "Step1_ParamsAndSpectrum.as"
 
-OX_default=1024
-OY_default=1024
+OX_default=2048
+OY_default=2048
 split_n_default=30//光の波長1オクターブを何分割するか
 OX=OX_default
 OY=OY_default
 split_n=split_n_default
 
 python_exe="C:\\Python313\\python.exe"
-input_path=dir_exe+"\\input.png"
+input_path=dir_exe+"\\input.bmp"
 run_tag=""
 spec_name="white"//入力スペクトルのプリセット名
 spec_mode=0

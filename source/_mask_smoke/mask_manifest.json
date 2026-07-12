@@ -1,0 +1,28 @@
+[
+  {
+    "name": "mask_01_multi_slit",
+    "style": "multi_slit",
+    "seed": 887271685,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\_mask_smoke\\mask_01_multi_slit.png",
+    "params": {
+      "size": 256,
+      "slit_count": 6,
+      "slit_width": 5,
+      "length": 185,
+      "angle_deg": -12.479
+    }
+  },
+  {
+    "name": "mask_02_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 613929631,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\_mask_smoke\\mask_02_radial_spokes.png",
+    "params": {
+      "size": 256,
+      "spoke_count": 11,
+      "inner_radius": 28,
+      "outer_radius": 105,
+      "width": 4
+    }
+  }
+]

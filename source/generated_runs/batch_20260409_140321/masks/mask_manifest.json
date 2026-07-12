@@ -1,0 +1,1268 @@
+[
+  {
+    "name": "mask_01_disc",
+    "style": "disc",
+    "seed": 887271685,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_01_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 181
+    }
+  },
+  {
+    "name": "mask_02_pinhole",
+    "style": "pinhole",
+    "seed": 613929631,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_02_pinhole.png",
+    "params": {
+      "size": 512,
+      "radius": 35
+    }
+  },
+  {
+    "name": "mask_03_annulus",
+    "style": "annulus",
+    "seed": 844042528,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_03_annulus.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 175,
+      "thickness": 30
+    }
+  },
+  {
+    "name": "mask_04_double_slit",
+    "style": "double_slit",
+    "seed": 207484490,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_04_double_slit.png",
+    "params": {
+      "size": 512,
+      "slit_width": 6,
+      "gap": 35,
+      "length": 328,
+      "angle_deg": 15.645
+    }
+  },
+  {
+    "name": "mask_05_cross",
+    "style": "cross",
+    "seed": 758895169,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_05_cross.png",
+    "params": {
+      "size": 512,
+      "span": 147,
+      "width": 32
+    }
+  },
+  {
+    "name": "mask_06_chevron",
+    "style": "chevron",
+    "seed": 112757561,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_06_chevron.png",
+    "params": {
+      "size": 512,
+      "arm_length": 179,
+      "width": 26,
+      "angle_deg": 38.253
+    }
+  },
+  {
+    "name": "mask_07_multi_slit",
+    "style": "multi_slit",
+    "seed": 704632363,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_07_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 6,
+      "slit_width": 11,
+      "length": 354,
+      "angle_deg": -12.515
+    }
+  },
+  {
+    "name": "mask_08_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 648803328,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_08_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 9,
+      "inner_radius": 53,
+      "outer_radius": 192,
+      "width": 9
+    }
+  },
+  {
+    "name": "mask_09_triangle",
+    "style": "triangle",
+    "seed": 829075158,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_09_triangle.png",
+    "params": {
+      "size": 512,
+      "sides": 3,
+      "radius": 124,
+      "phase_deg": 299.382
+    }
+  },
+  {
+    "name": "mask_10_square",
+    "style": "square",
+    "seed": 935016008,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_10_square.png",
+    "params": {
+      "size": 512,
+      "sides": 4,
+      "radius": 134,
+      "phase_deg": 354.624
+    }
+  },
+  {
+    "name": "mask_11_pentagon",
+    "style": "pentagon",
+    "seed": 245329802,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_11_pentagon.png",
+    "params": {
+      "size": 512,
+      "sides": 5,
+      "radius": 149,
+      "phase_deg": 153.214
+    }
+  },
+  {
+    "name": "mask_12_hexagon",
+    "style": "hexagon",
+    "seed": 313577465,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_12_hexagon.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "radius": 188,
+      "phase_deg": 307.894
+    }
+  },
+  {
+    "name": "mask_13_heptagon",
+    "style": "heptagon",
+    "seed": 559151665,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_13_heptagon.png",
+    "params": {
+      "size": 512,
+      "sides": 7,
+      "radius": 139,
+      "phase_deg": 350.859
+    }
+  },
+  {
+    "name": "mask_14_octagon",
+    "style": "octagon",
+    "seed": 1048755116,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_14_octagon.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "radius": 171,
+      "phase_deg": 287.6
+    }
+  },
+  {
+    "name": "mask_15_nonagon",
+    "style": "nonagon",
+    "seed": 717805656,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_15_nonagon.png",
+    "params": {
+      "size": 512,
+      "sides": 9,
+      "radius": 192,
+      "phase_deg": 44.464
+    }
+  },
+  {
+    "name": "mask_16_decagon",
+    "style": "decagon",
+    "seed": 899684780,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_16_decagon.png",
+    "params": {
+      "size": 512,
+      "sides": 10,
+      "radius": 204,
+      "phase_deg": 177.741
+    }
+  },
+  {
+    "name": "mask_17_hendecagon",
+    "style": "hendecagon",
+    "seed": 771220318,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_17_hendecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 11,
+      "radius": 170,
+      "phase_deg": 37.479
+    }
+  },
+  {
+    "name": "mask_18_dodecagon",
+    "style": "dodecagon",
+    "seed": 241314484,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_18_dodecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 12,
+      "radius": 128,
+      "phase_deg": 131.36
+    }
+  },
+  {
+    "name": "mask_19_star_polygon",
+    "style": "star_polygon",
+    "seed": 42545505,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_19_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 7,
+      "outer_radius": 155,
+      "inner_radius": 49
+    }
+  },
+  {
+    "name": "mask_20_ring_gap",
+    "style": "ring_gap",
+    "seed": 426477278,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_20_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 198,
+      "thickness": 25,
+      "gap_angle_deg": 67.794,
+      "gap_center_deg": 73.857
+    }
+  },
+  {
+    "name": "mask_21_polygon_aperture",
+    "style": "polygon_aperture",
+    "seed": 791613489,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_21_polygon_aperture.png",
+    "params": {
+      "size": 512,
+      "sides": 9,
+      "base_radius": 166,
+      "jitter": 0.1217,
+      "vertex_radii": [
+        149.223,
+        157.537,
+        151.828,
+        164.838,
+        153.233,
+        149.074,
+        148.774,
+        154.144,
+        177.389
+      ]
+    }
+  },
+  {
+    "name": "mask_22_crescent",
+    "style": "crescent",
+    "seed": 157154399,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_22_crescent.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 144,
+      "offset_px": 39,
+      "occluder_scale": 0.9392
+    }
+  },
+  {
+    "name": "mask_23_scratched_disc",
+    "style": "scratched_disc",
+    "seed": 266130368,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_23_scratched_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 185,
+      "scratch_count": 31,
+      "scratch_width": 5,
+      "speckle_mode": true
+    }
+  },
+  {
+    "name": "mask_24_grid",
+    "style": "grid",
+    "seed": 365179688,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_24_grid.png",
+    "params": {
+      "size": 512,
+      "spacing": 46,
+      "line_width": 6,
+      "span": 172
+    }
+  },
+  {
+    "name": "mask_25_offset_occlusion",
+    "style": "offset_occlusion",
+    "seed": 550848398,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_25_offset_occlusion.png",
+    "params": {
+      "size": 512,
+      "radius": 165,
+      "cut_width": 99,
+      "cut_height": 44,
+      "shift_x": 47,
+      "shift_y": -17
+    }
+  },
+  {
+    "name": "mask_26_asymmetric_blades",
+    "style": "asymmetric_blades",
+    "seed": 106404733,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_26_asymmetric_blades.png",
+    "params": {
+      "size": 512,
+      "blades": 9,
+      "base_radius": 144,
+      "vertex_radii": [
+        121.072,
+        105.967,
+        152.816,
+        168.776,
+        117.538,
+        157.423,
+        112.806,
+        128.773,
+        130.643
+      ]
+    }
+  },
+  {
+    "name": "mask_27_disc",
+    "style": "disc",
+    "seed": 794617786,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_27_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 144
+    }
+  },
+  {
+    "name": "mask_28_pinhole",
+    "style": "pinhole",
+    "seed": 607237033,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_28_pinhole.png",
+    "params": {
+      "size": 512,
+      "radius": 24
+    }
+  },
+  {
+    "name": "mask_29_annulus",
+    "style": "annulus",
+    "seed": 238312268,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_29_annulus.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 190,
+      "thickness": 37
+    }
+  },
+  {
+    "name": "mask_30_double_slit",
+    "style": "double_slit",
+    "seed": 103116503,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_30_double_slit.png",
+    "params": {
+      "size": 512,
+      "slit_width": 11,
+      "gap": 49,
+      "length": 329,
+      "angle_deg": 13.953
+    }
+  },
+  {
+    "name": "mask_31_cross",
+    "style": "cross",
+    "seed": 321208960,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_31_cross.png",
+    "params": {
+      "size": 512,
+      "span": 161,
+      "width": 55
+    }
+  },
+  {
+    "name": "mask_32_chevron",
+    "style": "chevron",
+    "seed": 620277105,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_32_chevron.png",
+    "params": {
+      "size": 512,
+      "arm_length": 185,
+      "width": 39,
+      "angle_deg": 51.28
+    }
+  },
+  {
+    "name": "mask_33_multi_slit",
+    "style": "multi_slit",
+    "seed": 262771687,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_33_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 4,
+      "slit_width": 12,
+      "length": 327,
+      "angle_deg": 12.501
+    }
+  },
+  {
+    "name": "mask_34_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 366499244,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_34_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 7,
+      "inner_radius": 47,
+      "outer_radius": 228,
+      "width": 8
+    }
+  },
+  {
+    "name": "mask_35_triangle",
+    "style": "triangle",
+    "seed": 221231171,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_35_triangle.png",
+    "params": {
+      "size": 512,
+      "sides": 3,
+      "radius": 139,
+      "phase_deg": 108.88
+    }
+  },
+  {
+    "name": "mask_36_square",
+    "style": "square",
+    "seed": 966319342,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_36_square.png",
+    "params": {
+      "size": 512,
+      "sides": 4,
+      "radius": 174,
+      "phase_deg": 70.005
+    }
+  },
+  {
+    "name": "mask_37_pentagon",
+    "style": "pentagon",
+    "seed": 265674871,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_37_pentagon.png",
+    "params": {
+      "size": 512,
+      "sides": 5,
+      "radius": 187,
+      "phase_deg": 170.401
+    }
+  },
+  {
+    "name": "mask_38_hexagon",
+    "style": "hexagon",
+    "seed": 164236425,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_38_hexagon.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "radius": 150,
+      "phase_deg": 140.973
+    }
+  },
+  {
+    "name": "mask_39_heptagon",
+    "style": "heptagon",
+    "seed": 708933189,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_39_heptagon.png",
+    "params": {
+      "size": 512,
+      "sides": 7,
+      "radius": 143,
+      "phase_deg": 306.968
+    }
+  },
+  {
+    "name": "mask_40_octagon",
+    "style": "octagon",
+    "seed": 254688391,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_40_octagon.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "radius": 124,
+      "phase_deg": 145.232
+    }
+  },
+  {
+    "name": "mask_41_nonagon",
+    "style": "nonagon",
+    "seed": 925679513,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_41_nonagon.png",
+    "params": {
+      "size": 512,
+      "sides": 9,
+      "radius": 125,
+      "phase_deg": 220.709
+    }
+  },
+  {
+    "name": "mask_42_decagon",
+    "style": "decagon",
+    "seed": 761704847,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_42_decagon.png",
+    "params": {
+      "size": 512,
+      "sides": 10,
+      "radius": 207,
+      "phase_deg": 12.441
+    }
+  },
+  {
+    "name": "mask_43_hendecagon",
+    "style": "hendecagon",
+    "seed": 563881477,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_43_hendecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 11,
+      "radius": 155,
+      "phase_deg": 230.462
+    }
+  },
+  {
+    "name": "mask_44_dodecagon",
+    "style": "dodecagon",
+    "seed": 1015144476,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_44_dodecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 12,
+      "radius": 199,
+      "phase_deg": 62.971
+    }
+  },
+  {
+    "name": "mask_45_star_polygon",
+    "style": "star_polygon",
+    "seed": 974948910,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_45_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 7,
+      "outer_radius": 181,
+      "inner_radius": 91
+    }
+  },
+  {
+    "name": "mask_46_ring_gap",
+    "style": "ring_gap",
+    "seed": 857820515,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_46_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 189,
+      "thickness": 23,
+      "gap_angle_deg": 63.32,
+      "gap_center_deg": 328.298
+    }
+  },
+  {
+    "name": "mask_47_polygon_aperture",
+    "style": "polygon_aperture",
+    "seed": 1010871424,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_47_polygon_aperture.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "base_radius": 181,
+      "jitter": 0.1287,
+      "vertex_radii": [
+        197.086,
+        166.201,
+        172.283,
+        190.03,
+        203.633,
+        184.788,
+        176.861,
+        178.205
+      ]
+    }
+  },
+  {
+    "name": "mask_48_crescent",
+    "style": "crescent",
+    "seed": 991209035,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_48_crescent.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 162,
+      "offset_px": 38,
+      "occluder_scale": 0.8886
+    }
+  },
+  {
+    "name": "mask_49_scratched_disc",
+    "style": "scratched_disc",
+    "seed": 787970891,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_49_scratched_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 196,
+      "scratch_count": 27,
+      "scratch_width": 5,
+      "speckle_mode": false
+    }
+  },
+  {
+    "name": "mask_50_grid",
+    "style": "grid",
+    "seed": 714065778,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_50_grid.png",
+    "params": {
+      "size": 512,
+      "spacing": 64,
+      "line_width": 5,
+      "span": 194
+    }
+  },
+  {
+    "name": "mask_51_offset_occlusion",
+    "style": "offset_occlusion",
+    "seed": 45281511,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_51_offset_occlusion.png",
+    "params": {
+      "size": 512,
+      "radius": 155,
+      "cut_width": 128,
+      "cut_height": 44,
+      "shift_x": 74,
+      "shift_y": -49
+    }
+  },
+  {
+    "name": "mask_52_asymmetric_blades",
+    "style": "asymmetric_blades",
+    "seed": 293982567,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_52_asymmetric_blades.png",
+    "params": {
+      "size": 512,
+      "blades": 6,
+      "base_radius": 164,
+      "vertex_radii": [
+        179.848,
+        174.371,
+        171.235,
+        176.754,
+        192.403,
+        179.904
+      ]
+    }
+  },
+  {
+    "name": "mask_53_disc",
+    "style": "disc",
+    "seed": 918074892,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_53_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 143
+    }
+  },
+  {
+    "name": "mask_54_pinhole",
+    "style": "pinhole",
+    "seed": 108827545,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_54_pinhole.png",
+    "params": {
+      "size": 512,
+      "radius": 22
+    }
+  },
+  {
+    "name": "mask_55_annulus",
+    "style": "annulus",
+    "seed": 566677623,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_55_annulus.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 171,
+      "thickness": 35
+    }
+  },
+  {
+    "name": "mask_56_double_slit",
+    "style": "double_slit",
+    "seed": 985274885,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_56_double_slit.png",
+    "params": {
+      "size": 512,
+      "slit_width": 8,
+      "gap": 50,
+      "length": 421,
+      "angle_deg": -11.011
+    }
+  },
+  {
+    "name": "mask_57_cross",
+    "style": "cross",
+    "seed": 734705887,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_57_cross.png",
+    "params": {
+      "size": 512,
+      "span": 192,
+      "width": 46
+    }
+  },
+  {
+    "name": "mask_58_chevron",
+    "style": "chevron",
+    "seed": 1070597519,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_58_chevron.png",
+    "params": {
+      "size": 512,
+      "arm_length": 122,
+      "width": 29,
+      "angle_deg": 38.159
+    }
+  },
+  {
+    "name": "mask_59_multi_slit",
+    "style": "multi_slit",
+    "seed": 417283083,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_59_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 3,
+      "slit_width": 7,
+      "length": 314,
+      "angle_deg": -1.158
+    }
+  },
+  {
+    "name": "mask_60_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 437258329,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_60_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 8,
+      "inner_radius": 43,
+      "outer_radius": 221,
+      "width": 4
+    }
+  },
+  {
+    "name": "mask_61_triangle",
+    "style": "triangle",
+    "seed": 279356547,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_61_triangle.png",
+    "params": {
+      "size": 512,
+      "sides": 3,
+      "radius": 170,
+      "phase_deg": 274.158
+    }
+  },
+  {
+    "name": "mask_62_square",
+    "style": "square",
+    "seed": 265154667,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_62_square.png",
+    "params": {
+      "size": 512,
+      "sides": 4,
+      "radius": 191,
+      "phase_deg": 111.091
+    }
+  },
+  {
+    "name": "mask_63_pentagon",
+    "style": "pentagon",
+    "seed": 65366969,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_63_pentagon.png",
+    "params": {
+      "size": 512,
+      "sides": 5,
+      "radius": 155,
+      "phase_deg": 205.853
+    }
+  },
+  {
+    "name": "mask_64_hexagon",
+    "style": "hexagon",
+    "seed": 31065900,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_64_hexagon.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "radius": 193,
+      "phase_deg": 91.253
+    }
+  },
+  {
+    "name": "mask_65_heptagon",
+    "style": "heptagon",
+    "seed": 1036491347,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_65_heptagon.png",
+    "params": {
+      "size": 512,
+      "sides": 7,
+      "radius": 136,
+      "phase_deg": 236.025
+    }
+  },
+  {
+    "name": "mask_66_octagon",
+    "style": "octagon",
+    "seed": 304105528,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_66_octagon.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "radius": 122,
+      "phase_deg": 37.79
+    }
+  },
+  {
+    "name": "mask_67_nonagon",
+    "style": "nonagon",
+    "seed": 834416458,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_67_nonagon.png",
+    "params": {
+      "size": 512,
+      "sides": 9,
+      "radius": 127,
+      "phase_deg": 207.119
+    }
+  },
+  {
+    "name": "mask_68_decagon",
+    "style": "decagon",
+    "seed": 220641441,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_68_decagon.png",
+    "params": {
+      "size": 512,
+      "sides": 10,
+      "radius": 166,
+      "phase_deg": 269.996
+    }
+  },
+  {
+    "name": "mask_69_hendecagon",
+    "style": "hendecagon",
+    "seed": 717028862,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_69_hendecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 11,
+      "radius": 197,
+      "phase_deg": 180.639
+    }
+  },
+  {
+    "name": "mask_70_dodecagon",
+    "style": "dodecagon",
+    "seed": 99156487,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_70_dodecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 12,
+      "radius": 167,
+      "phase_deg": 15.881
+    }
+  },
+  {
+    "name": "mask_71_star_polygon",
+    "style": "star_polygon",
+    "seed": 329131989,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_71_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 7,
+      "outer_radius": 215,
+      "inner_radius": 112
+    }
+  },
+  {
+    "name": "mask_72_ring_gap",
+    "style": "ring_gap",
+    "seed": 705375180,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_72_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 198,
+      "thickness": 20,
+      "gap_angle_deg": 32.986,
+      "gap_center_deg": 190.775
+    }
+  },
+  {
+    "name": "mask_73_polygon_aperture",
+    "style": "polygon_aperture",
+    "seed": 694729607,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_73_polygon_aperture.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "base_radius": 159,
+      "jitter": 0.0753,
+      "vertex_radii": [
+        160.376,
+        160.98,
+        152.122,
+        162.424,
+        155.19,
+        160.189,
+        148.389,
+        156.955
+      ]
+    }
+  },
+  {
+    "name": "mask_74_crescent",
+    "style": "crescent",
+    "seed": 979788636,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_74_crescent.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 169,
+      "offset_px": 44,
+      "occluder_scale": 0.8281
+    }
+  },
+  {
+    "name": "mask_75_scratched_disc",
+    "style": "scratched_disc",
+    "seed": 651740962,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_75_scratched_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 177,
+      "scratch_count": 17,
+      "scratch_width": 4,
+      "speckle_mode": false
+    }
+  },
+  {
+    "name": "mask_76_grid",
+    "style": "grid",
+    "seed": 171479586,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_76_grid.png",
+    "params": {
+      "size": 512,
+      "spacing": 59,
+      "line_width": 4,
+      "span": 156
+    }
+  },
+  {
+    "name": "mask_77_offset_occlusion",
+    "style": "offset_occlusion",
+    "seed": 437193984,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_77_offset_occlusion.png",
+    "params": {
+      "size": 512,
+      "radius": 181,
+      "cut_width": 151,
+      "cut_height": 50,
+      "shift_x": -37,
+      "shift_y": -76
+    }
+  },
+  {
+    "name": "mask_78_asymmetric_blades",
+    "style": "asymmetric_blades",
+    "seed": 685556714,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_78_asymmetric_blades.png",
+    "params": {
+      "size": 512,
+      "blades": 8,
+      "base_radius": 137,
+      "vertex_radii": [
+        156.418,
+        123.506,
+        141.172,
+        108.084,
+        137.126,
+        157.466,
+        113.236,
+        154.631
+      ]
+    }
+  },
+  {
+    "name": "mask_79_disc",
+    "style": "disc",
+    "seed": 984387487,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_79_disc.png",
+    "params": {
+      "size": 512,
+      "radius": 173
+    }
+  },
+  {
+    "name": "mask_80_pinhole",
+    "style": "pinhole",
+    "seed": 892487614,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_80_pinhole.png",
+    "params": {
+      "size": 512,
+      "radius": 17
+    }
+  },
+  {
+    "name": "mask_81_annulus",
+    "style": "annulus",
+    "seed": 413201470,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_81_annulus.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 165,
+      "thickness": 45
+    }
+  },
+  {
+    "name": "mask_82_double_slit",
+    "style": "double_slit",
+    "seed": 615270755,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_82_double_slit.png",
+    "params": {
+      "size": 512,
+      "slit_width": 7,
+      "gap": 42,
+      "length": 343,
+      "angle_deg": 19.46
+    }
+  },
+  {
+    "name": "mask_83_cross",
+    "style": "cross",
+    "seed": 469599204,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_83_cross.png",
+    "params": {
+      "size": 512,
+      "span": 131,
+      "width": 62
+    }
+  },
+  {
+    "name": "mask_84_chevron",
+    "style": "chevron",
+    "seed": 329778524,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_84_chevron.png",
+    "params": {
+      "size": 512,
+      "arm_length": 175,
+      "width": 35,
+      "angle_deg": 56.715
+    }
+  },
+  {
+    "name": "mask_85_multi_slit",
+    "style": "multi_slit",
+    "seed": 523176289,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_85_multi_slit.png",
+    "params": {
+      "size": 512,
+      "slit_count": 4,
+      "slit_width": 10,
+      "length": 450,
+      "angle_deg": 4.558
+    }
+  },
+  {
+    "name": "mask_86_radial_spokes",
+    "style": "radial_spokes",
+    "seed": 314252469,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_86_radial_spokes.png",
+    "params": {
+      "size": 512,
+      "spoke_count": 12,
+      "inner_radius": 30,
+      "outer_radius": 180,
+      "width": 7
+    }
+  },
+  {
+    "name": "mask_87_triangle",
+    "style": "triangle",
+    "seed": 381661904,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_87_triangle.png",
+    "params": {
+      "size": 512,
+      "sides": 3,
+      "radius": 180,
+      "phase_deg": 6.49
+    }
+  },
+  {
+    "name": "mask_88_square",
+    "style": "square",
+    "seed": 432295221,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_88_square.png",
+    "params": {
+      "size": 512,
+      "sides": 4,
+      "radius": 123,
+      "phase_deg": 50.07
+    }
+  },
+  {
+    "name": "mask_89_pentagon",
+    "style": "pentagon",
+    "seed": 333492332,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_89_pentagon.png",
+    "params": {
+      "size": 512,
+      "sides": 5,
+      "radius": 161,
+      "phase_deg": 160.874
+    }
+  },
+  {
+    "name": "mask_90_hexagon",
+    "style": "hexagon",
+    "seed": 435572142,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_90_hexagon.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "radius": 195,
+      "phase_deg": 122.756
+    }
+  },
+  {
+    "name": "mask_91_heptagon",
+    "style": "heptagon",
+    "seed": 141121069,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_91_heptagon.png",
+    "params": {
+      "size": 512,
+      "sides": 7,
+      "radius": 132,
+      "phase_deg": 186.405
+    }
+  },
+  {
+    "name": "mask_92_octagon",
+    "style": "octagon",
+    "seed": 640383700,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_92_octagon.png",
+    "params": {
+      "size": 512,
+      "sides": 8,
+      "radius": 189,
+      "phase_deg": 215.043
+    }
+  },
+  {
+    "name": "mask_93_nonagon",
+    "style": "nonagon",
+    "seed": 659964448,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_93_nonagon.png",
+    "params": {
+      "size": 512,
+      "sides": 9,
+      "radius": 164,
+      "phase_deg": 182.733
+    }
+  },
+  {
+    "name": "mask_94_decagon",
+    "style": "decagon",
+    "seed": 1039524220,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_94_decagon.png",
+    "params": {
+      "size": 512,
+      "sides": 10,
+      "radius": 185,
+      "phase_deg": 275.801
+    }
+  },
+  {
+    "name": "mask_95_hendecagon",
+    "style": "hendecagon",
+    "seed": 81369662,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_95_hendecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 11,
+      "radius": 183,
+      "phase_deg": 75.457
+    }
+  },
+  {
+    "name": "mask_96_dodecagon",
+    "style": "dodecagon",
+    "seed": 898296170,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_96_dodecagon.png",
+    "params": {
+      "size": 512,
+      "sides": 12,
+      "radius": 164,
+      "phase_deg": 14.267
+    }
+  },
+  {
+    "name": "mask_97_star_polygon",
+    "style": "star_polygon",
+    "seed": 503983152,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_97_star_polygon.png",
+    "params": {
+      "size": 512,
+      "points": 5,
+      "outer_radius": 208,
+      "inner_radius": 61
+    }
+  },
+  {
+    "name": "mask_98_ring_gap",
+    "style": "ring_gap",
+    "seed": 933954150,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_98_ring_gap.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 176,
+      "thickness": 30,
+      "gap_angle_deg": 83.766,
+      "gap_center_deg": 164.55
+    }
+  },
+  {
+    "name": "mask_99_polygon_aperture",
+    "style": "polygon_aperture",
+    "seed": 178737135,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_99_polygon_aperture.png",
+    "params": {
+      "size": 512,
+      "sides": 6,
+      "base_radius": 147,
+      "jitter": 0.164,
+      "vertex_radii": [
+        127.226,
+        134.42,
+        123.643,
+        147.347,
+        154.511,
+        148.491
+      ]
+    }
+  },
+  {
+    "name": "mask_100_crescent",
+    "style": "crescent",
+    "seed": 297301941,
+    "path": "C:\\Users\\5080\\Documents\\GitHub\\DiffractionGPU\\source\\generated_runs\\batch_20260409_140321\\masks\\mask_100_crescent.png",
+    "params": {
+      "size": 512,
+      "outer_radius": 147,
+      "offset_px": 41,
+      "occluder_scale": 0.7905
+    }
+  }
+]
